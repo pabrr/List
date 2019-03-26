@@ -79,7 +79,12 @@ class AddListViewController: BaseViewController {
     // MARK: UI events
     
     @objc func addListItem() {
+        let title = titleTextField.text ?? ""
+        let message = messageTextView.text ?? ""
+        let listViewModel = ListViewModel(title: title, message: message)
+        ListsService.shared.add(list: listViewModel)
         
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func backBarButtonPressed() {

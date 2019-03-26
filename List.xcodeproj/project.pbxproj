@@ -19,6 +19,9 @@
 		830AC1A22227ECB000A02C00 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830AC1A12227ECB000A02C00 /* AppRouter.swift */; };
 		833FBA3D222D0E34003DF3B9 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833FBA3C222D0E34003DF3B9 /* BaseTextField.swift */; };
 		833FBA3F222D0F5E003DF3B9 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833FBA3E222D0F5E003DF3B9 /* SeparatorView.swift */; };
+		83701F4C224A00A700DB0036 /* ListsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83701F4B224A00A700DB0036 /* ListsService.swift */; };
+		83701F4F224A017100DB0036 /* ListsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83701F4E224A017100DB0036 /* ListsServiceProtocol.swift */; };
+		83701F51224A022B00DB0036 /* ListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83701F50224A022B00DB0036 /* ListEntity.swift */; };
 		DA6DA33BA57FCAD9F6A9AAFF /* Pods_List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754CEAD2A5569BF1E85F1EA1 /* Pods_List.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +42,9 @@
 		830AC1A12227ECB000A02C00 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		833FBA3C222D0E34003DF3B9 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
 		833FBA3E222D0F5E003DF3B9 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		83701F4B224A00A700DB0036 /* ListsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsService.swift; sourceTree = "<group>"; };
+		83701F4E224A017100DB0036 /* ListsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsServiceProtocol.swift; sourceTree = "<group>"; };
+		83701F50224A022B00DB0036 /* ListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntity.swift; sourceTree = "<group>"; };
 		EDDA03DA6D14FC114AD679E6 /* Pods-List.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-List.debug.xcconfig"; path = "Pods/Target Support Files/Pods-List/Pods-List.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +90,7 @@
 				830AC1902227E75400A02C00 /* Base */,
 				830AC18F2227E6A000A02C00 /* Controllers */,
 				830AC1952227E87200A02C00 /* Models */,
+				83701F4A224A009200DB0036 /* Services */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -146,6 +153,24 @@
 				833FBA3C222D0E34003DF3B9 /* BaseTextField.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		83701F4A224A009200DB0036 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				83701F4D224A00FC00DB0036 /* Lists */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		83701F4D224A00FC00DB0036 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				83701F4B224A00A700DB0036 /* ListsService.swift */,
+				83701F4E224A017100DB0036 /* ListsServiceProtocol.swift */,
+				83701F50224A022B00DB0036 /* ListEntity.swift */,
+			);
+			path = Lists;
 			sourceTree = "<group>";
 		};
 		CA29ED2EE32FF490AA1BA0E5 /* Pods */ = {
@@ -264,12 +289,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-List/Pods-List-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,11 +314,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				830AC19C2227EA2500A02C00 /* BaseTableViewCellProtocol.swift in Sources */,
+				83701F51224A022B00DB0036 /* ListEntity.swift in Sources */,
 				830AC17D2227E5BA00A02C00 /* AppDelegate.swift in Sources */,
 				833FBA3F222D0F5E003DF3B9 /* SeparatorView.swift in Sources */,
 				830AC19F2227EB7F00A02C00 /* AddListViewController.swift in Sources */,
 				833FBA3D222D0E34003DF3B9 /* BaseTextField.swift in Sources */,
 				830AC1942227E7D400A02C00 /* ListsViewController.swift in Sources */,
+				83701F4C224A00A700DB0036 /* ListsService.swift in Sources */,
+				83701F4F224A017100DB0036 /* ListsServiceProtocol.swift in Sources */,
 				830AC1A22227ECB000A02C00 /* AppRouter.swift in Sources */,
 				830AC1972227E88800A02C00 /* ListViewModel.swift in Sources */,
 				830AC1922227E76700A02C00 /* BaseViewController.swift in Sources */,

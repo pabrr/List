@@ -20,6 +20,13 @@ class ListsViewController: BaseViewController {
         super.viewDidLoad()
 
         self.initView()
+        self.initData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.initData()
     }
     
     func initView() {
@@ -44,6 +51,12 @@ class ListsViewController: BaseViewController {
         self.listsTableView.dataSource = self
     }
     
+    func initData() {
+        self.lists = ListsService.shared.getLists()
+        
+        self.listsTableView.reloadData()
+    }
+    
     // Mark: UI events
     @objc func addList() {
         AppRouter.shared.showAddList(from: self)
@@ -56,7 +69,7 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.cellID) as! ListTableViewCell
+        let cell = ListTableViewCell(style: .default, reuseIdentifier: ListTableViewCell.cellID)
         let list = self.lists[indexPath.row]
         cell.setup(with: list)
         return cell

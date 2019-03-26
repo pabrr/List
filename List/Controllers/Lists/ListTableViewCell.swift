@@ -14,10 +14,14 @@ class ListTableViewCell: UITableViewCell, BaseTableViewCellProtocol {
     var titleLabel: UILabel = UILabel()
     var messageLabel: UILabel = UILabel()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.initView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func initView() {
@@ -26,14 +30,14 @@ class ListTableViewCell: UITableViewCell, BaseTableViewCellProtocol {
         self.contentView.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(8)
-            make.left.equalTo(8)
+            make.left.equalTo(16)
             make.right.equalTo(8)
         }
         
         self.messageLabel.font = UIFont.systemFont(ofSize: 14)
         self.contentView.addSubview(self.messageLabel)
         self.messageLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.titleLabel).inset(6)
+            make.top.equalTo(self.titleLabel.snp.bottom).inset(-6)
             make.left.equalTo(self.titleLabel.snp.left)
             make.right.equalTo(self.titleLabel.snp.right)
             make.bottom.equalTo(-8)
