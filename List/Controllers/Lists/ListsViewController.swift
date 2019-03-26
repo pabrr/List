@@ -15,6 +15,13 @@ class ListsViewController: BaseViewController {
     var lists: [ListViewModel] = []
     
     var listsTableView = UITableView(with: 0)
+    
+    var emptyListsLabel: UILabel = {
+        let label = UILabel(withFontSize: 18)
+        label.text = "There are no lists yet"
+        label.textAlignment = .center
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +39,7 @@ class ListsViewController: BaseViewController {
     func initView() {
         self.setupNavigationBar()
         self.initTableView()
+        self.initEmptyLabel()
     }
     
     func setupNavigationBar() {
@@ -51,10 +59,21 @@ class ListsViewController: BaseViewController {
         self.listsTableView.dataSource = self
     }
     
+    func initEmptyLabel() {
+        self.view.insertSubview(self.emptyListsLabel, at: 1)
+        self.emptyListsLabel.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.left.equalTo(24)
+            make.right.equalTo(-24)
+        }
+        self.emptyListsLabel.isHidden = true
+    }
+    
     func initData() {
         self.lists = ListsService.shared.getLists()
         
         self.listsTableView.reloadData()
+        self.emptyListsLabel.isHidden = self.lists.count > 0
     }
     
     // Mark: UI events

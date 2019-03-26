@@ -9,7 +9,7 @@
 import UIKit
 
 extension UILabel {
-    convenience init(withFontSize:CGFloat) {
+    convenience init(withFontSize: CGFloat) {
         self.init()
         self.numberOfLines = 0
         self.font = UIFont.systemFont(ofSize: withFontSize)
