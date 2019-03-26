@@ -72,7 +72,7 @@ class AddListViewController: BaseViewController {
             make.top.equalTo(messageLabel.snp.bottom).inset(-5)
             make.left.equalTo(self.titleTextField.snp.left)
             make.right.equalTo(self.titleTextField.snp.right)
-            make.height.equalTo(100)
+            make.bottom.equalTo(self.view.snp.bottom).inset(350)
         }
     }
     

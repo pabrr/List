@@ -22,6 +22,8 @@
 		83701F4C224A00A700DB0036 /* ListsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83701F4B224A00A700DB0036 /* ListsService.swift */; };
 		83701F4F224A017100DB0036 /* ListsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83701F4E224A017100DB0036 /* ListsServiceProtocol.swift */; };
 		83701F51224A022B00DB0036 /* ListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83701F50224A022B00DB0036 /* ListEntity.swift */; };
+		83701F53224A08DB00DB0036 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83701F52224A08DB00DB0036 /* UILabelExtension.swift */; };
+		83701F55224A0B4400DB0036 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83701F54224A0B4400DB0036 /* UITableViewExtension.swift */; };
 		DA6DA33BA57FCAD9F6A9AAFF /* Pods_List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754CEAD2A5569BF1E85F1EA1 /* Pods_List.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		83701F4B224A00A700DB0036 /* ListsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsService.swift; sourceTree = "<group>"; };
 		83701F4E224A017100DB0036 /* ListsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsServiceProtocol.swift; sourceTree = "<group>"; };
 		83701F50224A022B00DB0036 /* ListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntity.swift; sourceTree = "<group>"; };
+		83701F52224A08DB00DB0036 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		83701F54224A0B4400DB0036 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		EDDA03DA6D14FC114AD679E6 /* Pods-List.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-List.debug.xcconfig"; path = "Pods/Target Support Files/Pods-List/Pods-List.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +155,8 @@
 			children = (
 				833FBA3E222D0F5E003DF3B9 /* SeparatorView.swift */,
 				833FBA3C222D0E34003DF3B9 /* BaseTextField.swift */,
+				83701F52224A08DB00DB0036 /* UILabelExtension.swift */,
+				83701F54224A0B4400DB0036 /* UITableViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -316,8 +322,10 @@
 				830AC19C2227EA2500A02C00 /* BaseTableViewCellProtocol.swift in Sources */,
 				83701F51224A022B00DB0036 /* ListEntity.swift in Sources */,
 				830AC17D2227E5BA00A02C00 /* AppDelegate.swift in Sources */,
+				83701F53224A08DB00DB0036 /* UILabelExtension.swift in Sources */,
 				833FBA3F222D0F5E003DF3B9 /* SeparatorView.swift in Sources */,
 				830AC19F2227EB7F00A02C00 /* AddListViewController.swift in Sources */,
+				83701F55224A0B4400DB0036 /* UITableViewExtension.swift in Sources */,
 				833FBA3D222D0E34003DF3B9 /* BaseTextField.swift in Sources */,
 				830AC1942227E7D400A02C00 /* ListsViewController.swift in Sources */,
 				83701F4C224A00A700DB0036 /* ListsService.swift in Sources */,

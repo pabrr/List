@@ -14,7 +14,7 @@ class ListsViewController: BaseViewController {
     
     var lists: [ListViewModel] = []
     
-    var listsTableView: UITableView = UITableView()
+    var listsTableView = UITableView(with: 0)
 
     override func viewDidLoad() {
         super.viewDidLoad()

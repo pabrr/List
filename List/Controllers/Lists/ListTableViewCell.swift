@@ -11,8 +11,8 @@ import UIKit
 class ListTableViewCell: UITableViewCell, BaseTableViewCellProtocol {
     static var cellID: String = "ListTableViewCellID"
     
-    var titleLabel: UILabel = UILabel()
-    var messageLabel: UILabel = UILabel()
+    var titleLabel = UILabel(withFontSize: 16)
+    var messageLabel = UILabel(withFontSize: 14)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,16 +25,15 @@ class ListTableViewCell: UITableViewCell, BaseTableViewCellProtocol {
     }
     
     func initView() {
-        self.titleLabel.font = UIFont.systemFont(ofSize: 16)
-        self.titleLabel.numberOfLines = 0
+        self.separatorInset = .zero
+        
         self.contentView.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(8)
             make.left.equalTo(16)
-            make.right.equalTo(8)
+            make.right.equalTo(-8)
         }
         
-        self.messageLabel.font = UIFont.systemFont(ofSize: 14)
         self.contentView.addSubview(self.messageLabel)
         self.messageLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.titleLabel.snp.bottom).inset(-6)
