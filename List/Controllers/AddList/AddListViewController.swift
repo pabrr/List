@@ -81,7 +81,7 @@ class AddListViewController: BaseViewController {
     @objc func addListItem() {
         let title = titleTextField.text ?? ""
         let message = messageTextView.text ?? ""
-        let listViewModel = ListViewModel(title: title, message: message)
+        let listViewModel = ListViewModel(with: title, message: message)
         ListsService.shared.add(list: listViewModel)
         
         self.navigationController?.popViewController(animated: true)

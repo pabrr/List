@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class ListEntity: Object {
+    @objc dynamic var id = ""
     @objc dynamic var title = ""
     @objc dynamic var message = ""
 }

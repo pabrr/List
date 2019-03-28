@@ -8,6 +8,9 @@
 
 import UIKit
 
+import Realm
+import RealmSwift
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -23,7 +26,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.rootViewController = navigationController
         window!.makeKeyAndVisible()
         
+        self.realmInit()
+        
         return true
+    }
+    
+    func realmInit() {
+        let config = Realm.Configuration(
+            // Set the new schema version. This must be greater than the previously used
+            // version (if you've never set a schema version before, the version is 0).
+            schemaVersion: 1,
+            
+            // Set the block which will be called automatically when opening a Realm with
+            // a schema version lower than the one set above
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < 1 {
+                    migration.enumerateObjects(ofType: ListEntity.className(), { oldObject, newObject in
+                        newObject?["id"] = UUID().uuidString
+                    })
+                }
+        })
+        Realm.Configuration.defaultConfiguration = config
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

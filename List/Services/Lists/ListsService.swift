@@ -27,6 +27,7 @@ class ListsService: ListsServiceProtocol {
         do {
             let realm = try Realm()
             let listEntity = ListEntity()
+            listEntity.id = list.id
             listEntity.title = list.title
             listEntity.message = list.message
             try! realm.write {
@@ -41,7 +42,7 @@ class ListsService: ListsServiceProtocol {
         do {
             let realm = try Realm()
             let lists = realm.objects(ListEntity.self)
-            return lists.map({ListViewModel(title: $0.title, message: $0.message)})
+            return lists.map({ListViewModel(with: $0)})
         } catch {
             print("error getting lists")
             return []
@@ -49,6 +50,11 @@ class ListsService: ListsServiceProtocol {
     }
     
     func deleteList(with id: String) {
-        
+        let list = self.realm?.objects(ListEntity.self).filter({$0.id == id}).first
+        if let list = list {
+            self.realm?.delete(list)
+        } else {
+            print("list not found")
+        }
     }
 }
