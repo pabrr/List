@@ -13,6 +13,16 @@ class ListsService: ListsServiceProtocol {
     
     public static var shared = ListsService()
     
+    var realm: Realm?
+    
+    init() {
+        do {
+            self.realm = try Realm()
+        } catch {
+            print("error initing Realm")
+        }
+    }
+    
     func add(list: ListViewModel) {
         do {
             let realm = try Realm()
@@ -36,5 +46,9 @@ class ListsService: ListsServiceProtocol {
             print("error getting lists")
             return []
         }
+    }
+    
+    func deleteList(with id: String) {
+        
     }
 }

@@ -11,4 +11,5 @@ import Foundation
 protocol ListsServiceProtocol {
     func add(list: ListViewModel)
     func getLists() -> [ListViewModel]
+    func deleteList(with id: String)
 }
