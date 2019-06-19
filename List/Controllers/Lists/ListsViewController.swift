@@ -14,7 +14,7 @@ class ListsViewController: BaseViewController {
     
     var lists: [ListViewModel] = []
     
-    var listsTableView = UITableView(with: 0)
+    var listsTableView = UITableView(frame: .zero)
     
     var emptyListsLabel: UILabel = {
         let label = UILabel(withFontSize: 18)
@@ -50,6 +50,10 @@ class ListsViewController: BaseViewController {
     }
     
     func initTableView() {
+        self.listsTableView.tableFooterView = UIView()
+        
+        self.listsTableView.register(ListTableViewCell.self, forCellReuseIdentifier: ListTableViewCell.cellID)
+        
         self.view.addSubview(self.listsTableView)
         self.listsTableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -88,7 +92,7 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ListTableViewCell(style: .default, reuseIdentifier: ListTableViewCell.cellID)
+        let cell = self.listsTableView.dequeueReusableCell(withIdentifier: ListTableViewCell.cellID, for: indexPath) as! ListTableViewCell
         let list = self.lists[indexPath.row]
         cell.setup(with: list)
         return cell

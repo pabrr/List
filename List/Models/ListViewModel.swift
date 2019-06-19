@@ -12,9 +12,7 @@ class ListViewModel {
     var title = ""
     var message = ""
     
-    convenience init(title:String, message:String) {
-        self.init()
-        
+    init(title:String, message:String) {
         self.title = title
         self.message = message
     }

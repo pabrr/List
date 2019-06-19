@@ -9,7 +9,7 @@
 import UIKit
 
 class ListTableViewCell: UITableViewCell, BaseTableViewCellProtocol {
-    static var cellID: String = "ListTableViewCellID"
+    static var cellID: String = NSStringFromClass(ListTableViewCell.self)
     
     var titleLabel = UILabel(withFontSize: 16)
     var messageLabel = UILabel(withFontSize: 14)
