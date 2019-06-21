@@ -11,10 +11,16 @@ import Foundation
 class ToTrashViewModel: ListViewModel {
     var dateTillTrash: Date!
     
-    convenience init(with message: String, dateTillTrash: Date) {
+    convenience init(message: String, dateTillTrash: Date) {
         self.init(title: "Выбросить", message: message)
 
         self.dateTillTrash = dateTillTrash
+    }
+    
+    convenience override init(with entity: ListEntity) {
+        self.init(title: "Выбросить", message: entity.message)
+        
+        self.dateTillTrash = entity.dateTillTrash!
     }
     
     func daysRemain() -> String {

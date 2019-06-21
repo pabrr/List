@@ -16,4 +16,9 @@ class ListViewModel {
         self.title = title
         self.message = message
     }
+    
+    init(with entity: ListEntity) {
+        self.title = entity.title
+        self.message = entity.message
+    }
 }

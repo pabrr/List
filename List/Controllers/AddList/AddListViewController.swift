@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 
+enum ListType {
+    case symple, toTrash
+}
+
 class AddListViewController: BaseViewController {
+    
+    var listType: ListType = .symple
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -79,10 +85,19 @@ class AddListViewController: BaseViewController {
     // MARK: UI events
     
     @objc func addListItem() {
-        let title = titleTextField.text ?? ""
-        let message = messageTextView.text ?? ""
-        let listViewModel = ListViewModel(title: title, message: message)
-        ListsService.shared.add(list: listViewModel)
+        switch self.listType {
+        case .symple:
+            let title = titleTextField.text ?? ""
+            let message = messageTextView.text ?? ""
+            let listViewModel = ListViewModel(title: title, message: message)
+            ListsService.shared.add(list: listViewModel)
+        case .toTrash:
+            let message = messageTextView.text ?? ""
+            let date = Date()
+            let toTrashListViewModel = ToTrashViewModel(message: message, dateTillTrash: date)
+            ListsService.shared.add(list: toTrashListViewModel)
+        }
+        
         
         self.navigationController?.popViewController(animated: true)
     }

@@ -92,8 +92,15 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.listsTableView.dequeueReusableCell(withIdentifier: ListTableViewCell.cellID, for: indexPath) as! ListTableViewCell
         let list = self.lists[indexPath.row]
+        
+        if let toTrashList = list as? ToTrashViewModel {
+            let cell = self.listsTableView.dequeueReusableCell(withIdentifier: ToTrashTableViewCell.cellID, for: indexPath) as! ToTrashTableViewCell
+            cell.setup(with: toTrashList)
+            return cell
+        }
+        
+        let cell = self.listsTableView.dequeueReusableCell(withIdentifier: ListTableViewCell.cellID, for: indexPath) as! ListTableViewCell
         cell.setup(with: list)
         return cell
     }

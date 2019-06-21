@@ -19,6 +19,9 @@ class ListsService: ListsServiceProtocol {
             let listEntity = ListEntity()
             listEntity.title = list.title
             listEntity.message = list.message
+            if let toTrashList = list as? ToTrashViewModel {
+                listEntity.dateTillTrash = toTrashList.dateTillTrash
+            }
             try! realm.write {
                 realm.add(listEntity)
             }
@@ -31,7 +34,12 @@ class ListsService: ListsServiceProtocol {
         do {
             let realm = try Realm()
             let lists = realm.objects(ListEntity.self)
-            return lists.map({ListViewModel(title: $0.title, message: $0.message)})
+            return lists.map({ (entity) -> ListViewModel in
+                if entity.dateTillTrash != nil {
+                    return ToTrashViewModel(with: entity)
+                }
+                return ListViewModel(with: entity)
+            })
         } catch {
             print("error getting lists")
             return []

@@ -12,4 +12,5 @@ import RealmSwift
 class ListEntity: Object {
     @objc dynamic var title = ""
     @objc dynamic var message = ""
+    @objc dynamic var dateTillTrash: Date?
 }
