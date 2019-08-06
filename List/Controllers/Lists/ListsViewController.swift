@@ -10,7 +10,7 @@ import UIKit
 
 import SnapKit
 
-class ListsViewController: BaseViewController {
+class ListsViewController: UIViewController {
     
     var lists: [ListViewModel] = []
     
@@ -78,11 +78,15 @@ class ListsViewController: BaseViewController {
     
     // Mark: UI events
     @objc func addList() {
-        AppRouter.shared.showAddList(from: self)
+        AppRouter.shared.showAddList(from: self, with: .add, with: "")
     }
 }
 
 extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.lists.count
     }
@@ -92,5 +96,10 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
         let list = self.lists[indexPath.row]
         cell.setup(with: list)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let list = self.lists[indexPath.row]
+        AppRouter.shared.showAddList(from: self, with: .edit, with: list.id)
     }
 }

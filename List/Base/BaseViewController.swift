@@ -23,7 +23,7 @@ class BaseViewController: UIViewController {
     }
     
     func setupKeyboard() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tap)
     }
     
@@ -37,7 +37,7 @@ class BaseViewController: UIViewController {
     }
     
     // MARK: UI events
-    @objc func dismissKeyboard() {
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
 }
