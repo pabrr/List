@@ -36,7 +36,7 @@ class ListTableViewCell: UITableViewCell, BaseTableViewCellProtocol {
         
         self.contentView.addSubview(self.messageLabel)
         self.messageLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.titleLabel.snp.bottom).inset(-6)
+            make.top.equalTo(self.titleLabel.snp.bottom).inset(-4)
             make.left.equalTo(self.titleLabel.snp.left)
             make.right.equalTo(self.titleLabel.snp.right)
             make.bottom.equalTo(-8)

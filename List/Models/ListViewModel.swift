@@ -9,13 +9,23 @@
 import Foundation
 
 class ListViewModel {
+    var id = ""
     var title = ""
     var message = ""
     
-    convenience init(title:String, message:String) {
+    convenience init(with title: String, message: String) {
         self.init()
         
+        self.id = UUID().uuidString
         self.title = title
         self.message = message
+    }
+    
+    convenience init(with listEntity: ListEntity) {
+        self.init()
+        
+        self.id = listEntity.id
+        self.title = listEntity.title
+        self.message = listEntity.message
     }
 }

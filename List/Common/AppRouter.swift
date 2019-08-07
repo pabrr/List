@@ -12,8 +12,8 @@ import UIKit
 class AppRouter {
     public static var shared: AppRouter = AppRouter()
     
-    func showAddList(from viewController: UIViewController) {
-        let addListViewController = AddListViewController()
+    func showAddList(from viewController: UIViewController, with type: WatchListType, with listId: String) {
+        let addListViewController = AddListViewController(with: type, listId: listId)
         viewController.navigationController?.pushViewController(addListViewController, animated: true)
     }
 }
