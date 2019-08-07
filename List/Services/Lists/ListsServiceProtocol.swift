@@ -8,6 +8,7 @@
 
 import Foundation
 
+// later for DI
 protocol ListsServiceProtocol {
     func add(list: ListViewModel)
     func edit(list: ListViewModel)

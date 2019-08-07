@@ -22,13 +22,19 @@ class ListsService: ListsServiceProtocol {
     
     func edit(list: ListViewModel) {
         do {
-            let listEntity = ListEntity()
-            listEntity.title = list.title
-            listEntity.message = list.message
-            listEntity.id = list.id
-            try Realm().write {
-                try Realm().add(listEntity, update: true)
+            let listEntities = try Realm().objects(ListEntity.self).filter({$0.id == list.id})
+            if let listEntity = listEntities.first {
+                try! Realm().write {
+                    listEntity.title = list.title
+                    listEntity.message = list.message
+                }
             }
+//            listEntity.title = list.title
+//            listEntity.message = list.message
+//            listEntity.id = list.id
+//            try Realm().write {
+//                try Realm().add(listEntity, update: true)
+//            }
         } catch {
             print("error updating list")
         }

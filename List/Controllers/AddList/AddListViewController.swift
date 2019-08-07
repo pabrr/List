@@ -129,6 +129,7 @@ class AddListViewController: BaseViewController {
         case .add:
             self.add(listViewModel)
         case .edit:
+            listViewModel.id = self.list!.id
             self.edit(listViewModel)
         }
         
